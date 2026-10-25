@@ -10,10 +10,10 @@ interface SidebarProps {
 }
 
 const menuItems: { page: Page; label: string; icon: React.ReactNode }[] = [
-  { page: 'dashboard', label: 'Дашборд', icon: <LayoutDashboard size={20} /> },
-  { page: 'tasks', label: 'Задачи и Клиенты', icon: <CheckSquare size={20} /> },
-  { page: 'deals', label: 'Сделки', icon: <Briefcase size={20} /> },
-  { page: 'documents', label: 'Документы', icon: <FileText size={20} /> },
+  { page: 'dashboard', label: 'Р”Р°С€Р±РѕСЂРґ', icon: <LayoutDashboard size={20} /> },
+  { page: 'tasks', label: 'Р—Р°РґР°С‡Рё Рё РљР»РёРµРЅС‚С‹', icon: <CheckSquare size={20} /> },
+  { page: 'deals', label: 'РЎРґРµР»РєРё', icon: <Briefcase size={20} /> },
+  { page: 'documents', label: 'Р”РѕРєСѓРјРµРЅС‚С‹', icon: <FileText size={20} /> },
 ];
 
 export default function Sidebar({ currentPage, onPageChange, user, onLogout }: SidebarProps) {
@@ -24,7 +24,7 @@ export default function Sidebar({ currentPage, onPageChange, user, onLogout }: S
           <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">CRM</span>
           <span className="text-slate-300 font-light">Pro</span>
         </h1>
-        <p className="text-xs text-slate-400 mt-1">Система управления клиентами</p>
+        <p className="text-xs text-slate-400 mt-1">РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ РєР»РёРµРЅС‚Р°РјРё</p>
       </div>
 
       <nav className="flex-1 p-4 space-y-1">
@@ -59,7 +59,7 @@ export default function Sidebar({ currentPage, onPageChange, user, onLogout }: S
           <button
             onClick={onLogout}
             className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
-            title="Выйти"
+            title="Р’С‹Р№С‚Рё"
           >
             <LogOut size={16} />
           </button>
