@@ -22,19 +22,19 @@ export default function Auth({ onAuth }: AuthProps) {
 
   const handleStep1 = () => {
     const newErrors: Record<string, string> = {};
-    if (!phone.trim() || phone.replace(/\D/g, '').length < 11) newErrors.phone = 'Введите номер телефона';
-    if (!name.trim()) newErrors.name = 'Введите ФИО';
+    if (!phone.trim() || phone.replace(/\D/g, '').length < 11) newErrors.phone = 'Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°';
+    if (!name.trim()) newErrors.name = 'Р’РІРµРґРёС‚Рµ Р¤РРћ';
     if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
     setErrors({}); setStep(2);
   };
 
   const handleStep2 = () => {
     const newErrors: Record<string, string> = {};
-    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Введите email';
-    if (!company.trim()) newErrors.company = 'Введите компанию';
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Р’РІРµРґРёС‚Рµ email';
+    if (!company.trim()) newErrors.company = 'Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ';
     if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
     setErrors({});
-    onAuth({ id: Date.now().toString(), name: name.trim(), phone: phone.trim(), email: email.trim(), company: company.trim(), position: position.trim() || 'Сотрудник', createdAt: new Date().toISOString() });
+    onAuth({ id: Date.now().toString(), name: name.trim(), phone: phone.trim(), email: email.trim(), company: company.trim(), position: position.trim() || 'РЎРѕС‚СЂСѓРґРЅРёРє', createdAt: new Date().toISOString() });
   };
 
   return (
@@ -47,7 +47,7 @@ export default function Auth({ onAuth }: AuthProps) {
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl mb-4 border border-white/20"><Shield className="text-white" size={32} /></div>
           <h1 className="text-3xl font-bold text-white">CRM <span className="text-blue-300 font-light">Pro</span></h1>
-          <p className="text-blue-200/70 mt-2">Система управления клиентами</p>
+          <p className="text-blue-200/70 mt-2">РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ РєР»РёРµРЅС‚Р°РјРё</p>
         </div>
         <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-8 shadow-2xl">
           <div className="flex items-center gap-2 mb-6">
@@ -56,27 +56,27 @@ export default function Auth({ onAuth }: AuthProps) {
           </div>
           {step === 1 && (
             <div className="space-y-5">
-              <div><h2 className="text-xl font-semibold text-white">Добро пожаловать!</h2><p className="text-blue-200/70 text-sm mt-1">Введите свои данные для входа</p></div>
+              <div><h2 className="text-xl font-semibold text-white">Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ!</h2><p className="text-blue-200/70 text-sm mt-1">Р’РІРµРґРёС‚Рµ СЃРІРѕРё РґР°РЅРЅС‹Рµ РґР»СЏ РІС…РѕРґР°</p></div>
               <div>
-                <label className="block text-sm font-medium text-blue-100 mb-2">Номер телефона *</label>
+                <label className="block text-sm font-medium text-blue-100 mb-2">РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° *</label>
                 <div className="relative"><Phone size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-300" />
                   <input type="tel" value={phone} onChange={(e) => setPhone(formatPhone(e.target.value))} placeholder="+7 (999) 123-45-67" maxLength={18}
                     className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-400" /></div>
                 {errors.phone && <p className="text-red-300 text-xs mt-1">{errors.phone}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-blue-100 mb-2">ФИО *</label>
+                <label className="block text-sm font-medium text-blue-100 mb-2">Р¤РРћ *</label>
                 <div className="relative"><UserIcon size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-300" />
-                  <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Иванов Иван Иванович"
+                  <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="РРІР°РЅРѕРІ РРІР°РЅ РРІР°РЅРѕРІРёС‡"
                     className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-400" /></div>
                 {errors.name && <p className="text-red-300 text-xs mt-1">{errors.name}</p>}
               </div>
-              <button onClick={handleStep1} className="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium shadow-lg shadow-blue-500/30">Продолжить <ArrowRight size={18} /></button>
+              <button onClick={handleStep1} className="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium shadow-lg shadow-blue-500/30">РџСЂРѕРґРѕР»Р¶РёС‚СЊ <ArrowRight size={18} /></button>
             </div>
           )}
           {step === 2 && (
             <div className="space-y-5">
-              <div><h2 className="text-xl font-semibold text-white">Дополнительная информация</h2><p className="text-blue-200/70 text-sm mt-1">Заполните данные о компании</p></div>
+              <div><h2 className="text-xl font-semibold text-white">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</h2><p className="text-blue-200/70 text-sm mt-1">Р—Р°РїРѕР»РЅРёС‚Рµ РґР°РЅРЅС‹Рµ Рѕ РєРѕРјРїР°РЅРёРё</p></div>
               <div>
                 <label className="block text-sm font-medium text-blue-100 mb-2">Email *</label>
                 <div className="relative"><Mail size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-300" />
@@ -85,21 +85,21 @@ export default function Auth({ onAuth }: AuthProps) {
                 {errors.email && <p className="text-red-300 text-xs mt-1">{errors.email}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-blue-100 mb-2">Компания *</label>
+                <label className="block text-sm font-medium text-blue-100 mb-2">РљРѕРјРїР°РЅРёСЏ *</label>
                 <div className="relative"><Building2 size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-300" />
-                  <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="ООО Моя Компания"
+                  <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="РћРћРћ РњРѕСЏ РљРѕРјРїР°РЅРёСЏ"
                     className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-400" /></div>
                 {errors.company && <p className="text-red-300 text-xs mt-1">{errors.company}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-blue-100 mb-2">Должность</label>
+                <label className="block text-sm font-medium text-blue-100 mb-2">Р”РѕР»Р¶РЅРѕСЃС‚СЊ</label>
                 <div className="relative"><Briefcase size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-300" />
-                  <input type="text" value={position} onChange={(e) => setPosition(e.target.value)} placeholder="Менеджер"
+                  <input type="text" value={position} onChange={(e) => setPosition(e.target.value)} placeholder="РњРµРЅРµРґР¶РµСЂ"
                     className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-400" /></div>
               </div>
               <div className="flex gap-3">
-                <button onClick={() => setStep(1)} className="flex-1 py-3 border border-white/20 text-white rounded-xl font-medium hover:bg-white/10">Назад</button>
-                <button onClick={handleStep2} className="flex-[2] flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium shadow-lg shadow-blue-500/30">Войти <ArrowRight size={18} /></button>
+                <button onClick={() => setStep(1)} className="flex-1 py-3 border border-white/20 text-white rounded-xl font-medium hover:bg-white/10">РќР°Р·Р°Рґ</button>
+                <button onClick={handleStep2} className="flex-[2] flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium shadow-lg shadow-blue-500/30">Р’РѕР№С‚Рё <ArrowRight size={18} /></button>
               </div>
             </div>
           )}
@@ -108,4 +108,3 @@ export default function Auth({ onAuth }: AuthProps) {
     </div>
   );
 }
-
