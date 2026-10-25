@@ -6,11 +6,11 @@ import { v4 as uuidv4 } from 'uuid';
 interface DealsProps { deals: Deal[]; setDeals: React.Dispatch<React.SetStateAction<Deal[]>>; }
 
 const stages = [
-  { id: 'new', label: 'Новые', color: 'border-blue-400', bg: 'bg-blue-50', badge: 'bg-blue-500' },
-  { id: 'negotiation', label: 'Переговоры', color: 'border-yellow-400', bg: 'bg-yellow-50', badge: 'bg-yellow-500' },
-  { id: 'proposal', label: 'Предложение', color: 'border-purple-400', bg: 'bg-purple-50', badge: 'bg-purple-500' },
-  { id: 'closed_won', label: 'Выиграно', color: 'border-green-400', bg: 'bg-green-50', badge: 'bg-green-500' },
-  { id: 'closed_lost', label: 'Проиграно', color: 'border-red-400', bg: 'bg-red-50', badge: 'bg-red-500' },
+  { id: 'new', label: 'РќРѕРІС‹Рµ', color: 'border-blue-400', bg: 'bg-blue-50', badge: 'bg-blue-500' },
+  { id: 'negotiation', label: 'РџРµСЂРµРіРѕРІРѕСЂС‹', color: 'border-yellow-400', bg: 'bg-yellow-50', badge: 'bg-yellow-500' },
+  { id: 'proposal', label: 'РџСЂРµРґР»РѕР¶РµРЅРёРµ', color: 'border-purple-400', bg: 'bg-purple-50', badge: 'bg-purple-500' },
+  { id: 'closed_won', label: 'Р’С‹РёРіСЂР°РЅРѕ', color: 'border-green-400', bg: 'bg-green-50', badge: 'bg-green-500' },
+  { id: 'closed_lost', label: 'РџСЂРѕРёРіСЂР°РЅРѕ', color: 'border-red-400', bg: 'bg-red-50', badge: 'bg-red-500' },
 ];
 
 export default function Deals({ deals, setDeals }: DealsProps) {
@@ -32,8 +32,8 @@ export default function Deals({ deals, setDeals }: DealsProps) {
   return (
     <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <div><h2 className="text-2xl sm:text-3xl font-bold text-slate-800">Сделки</h2><p className="text-slate-500 mt-1">Kanban-доска</p></div>
-        <button onClick={() => setShowModal(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 shadow-sm"><Plus size={18} /> Новая сделка</button>
+        <div><h2 className="text-2xl sm:text-3xl font-bold text-slate-800">РЎРґРµР»РєРё</h2><p className="text-slate-500 mt-1">Kanban-РґРѕСЃРєР°</p></div>
+        <button onClick={() => setShowModal(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 shadow-sm"><Plus size={18} /> РќРѕРІР°СЏ СЃРґРµР»РєР°</button>
       </div>
       <div className="flex gap-4 overflow-x-auto pb-4">
         {stages.map((stage) => {
@@ -62,14 +62,14 @@ export default function Deals({ deals, setDeals }: DealsProps) {
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
-            <div className="flex items-center justify-between p-6 border-b border-slate-200"><h3 className="text-lg font-semibold">Новая сделка</h3><button onClick={() => setShowModal(false)} className="p-2 hover:bg-slate-100 rounded-lg"><X size={20} /></button></div>
+            <div className="flex items-center justify-between p-6 border-b border-slate-200"><h3 className="text-lg font-semibold">РќРѕРІР°СЏ СЃРґРµР»РєР°</h3><button onClick={() => setShowModal(false)} className="p-2 hover:bg-slate-100 rounded-lg"><X size={20} /></button></div>
             <div className="p-6 space-y-4">
-              <div><label className="block text-sm font-medium text-slate-700 mb-1">Название *</label><input type="text" value={formData.title} onChange={(e) => setFormData(p => ({ ...p, title: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
-              <div><label className="block text-sm font-medium text-slate-700 mb-1">Сумма (?) *</label><input type="number" value={formData.value} onChange={(e) => setFormData(p => ({ ...p, value: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
-              <div><label className="block text-sm font-medium text-slate-700 mb-1">Контакт *</label><input type="text" value={formData.contactName} onChange={(e) => setFormData(p => ({ ...p, contactName: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
-              <div><label className="block text-sm font-medium text-slate-700 mb-1">Ожидаемое закрытие</label><input type="date" value={formData.expectedClose} onChange={(e) => setFormData(p => ({ ...p, expectedClose: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
+              <div><label className="block text-sm font-medium text-slate-700 mb-1">РќР°Р·РІР°РЅРёРµ *</label><input type="text" value={formData.title} onChange={(e) => setFormData(p => ({ ...p, title: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
+              <div><label className="block text-sm font-medium text-slate-700 mb-1">РЎСѓРјРјР° (в‚Ѕ) *</label><input type="number" value={formData.value} onChange={(e) => setFormData(p => ({ ...p, value: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
+              <div><label className="block text-sm font-medium text-slate-700 mb-1">РљРѕРЅС‚Р°РєС‚ *</label><input type="text" value={formData.contactName} onChange={(e) => setFormData(p => ({ ...p, contactName: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
+              <div><label className="block text-sm font-medium text-slate-700 mb-1">РћР¶РёРґР°РµРјРѕРµ Р·Р°РєСЂС‹С‚РёРµ</label><input type="date" value={formData.expectedClose} onChange={(e) => setFormData(p => ({ ...p, expectedClose: e.target.value }))} className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" /></div>
             </div>
-            <div className="flex items-center justify-end gap-3 p-6 border-t border-slate-200"><button onClick={() => setShowModal(false)} className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Отмена</button><button onClick={handleAddDeal} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Создать</button></div>
+            <div className="flex items-center justify-end gap-3 p-6 border-t border-slate-200"><button onClick={() => setShowModal(false)} className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">РћС‚РјРµРЅР°</button><button onClick={handleAddDeal} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">РЎРѕР·РґР°С‚СЊ</button></div>
           </div>
         </div>
       )}
